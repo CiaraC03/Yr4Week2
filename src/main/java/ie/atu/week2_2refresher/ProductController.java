@@ -1,5 +1,6 @@
 package ie.atu.week2_2refresher;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,19 +12,16 @@ import java.util.List;
 @RestController
 public class ProductController {
 
-    private List<Product> productList = new ArrayList<Product>();
+    private final ProductService productService;
 
-    @GetMapping("/products")
-    public List<Product> getProductList()
+    @Autowired
+    public ProductController(ProductService productService)
     {
-        return productList;
+        this.productService = productService;
     }
 
-    @PostMapping("/products")
-    public Product returnProducts(@RequestBody Product product)
-    {
-        productList.add(product);
-        return product;
+    public List<Product> retreiveProductList(){
+        return productService.getProductList();
     }
 
 }
