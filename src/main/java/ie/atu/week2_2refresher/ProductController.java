@@ -20,8 +20,14 @@ public class ProductController {
         this.productService = productService;
     }
 
-    public List<Product> retreiveProductList(){
+    @GetMapping("/products")
+    public List<Product> getProductList(){
         return productService.getProductList();
+    }
+
+    @PostMapping("/products")
+    public Product returnProducts(@RequestBody Product product){
+        return productService.returnProducts(product);
     }
 
 }

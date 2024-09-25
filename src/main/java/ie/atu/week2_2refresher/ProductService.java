@@ -13,13 +13,13 @@ public class ProductService {
 
     private List<Product> productList = new ArrayList<>();
 
-    @GetMapping("/products")
+
     public List<Product> getProductList()
     {
         return productList;
     }
 
-    @PostMapping("/products")
+
     public Product returnProducts(@RequestBody Product product)
     {
         productList.add(product);
