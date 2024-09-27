@@ -3,8 +3,9 @@ package ie.atu.week2_2refresher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+
 import java.util.List;
+
 
 @RestController
 public class ProductController {
@@ -31,6 +32,12 @@ public class ProductController {
     public Product updateProduct(@RequestBody Product product){
         return productService.updateProducts(product);
     }
+    @DeleteMapping("/deleteProducts")
+    public void deleteProducts (Long id)
+    {
+        productService.deleteProducts(id);
+    }
+
 
 
 }

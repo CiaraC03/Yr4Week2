@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
 
 @Service
 public class ProductService {
@@ -25,34 +27,28 @@ public class ProductService {
     }
 
     //updating a product by id name
-    public Product updateProducts(Product product)
-    {
-        for (Product prod : productList)
-        {
-            if (prod.getId() == product.getId())
-            {
-                prod.setName(product.getName());
-                prod.setPrice(product.getPrice());
-                return prod;
-            }
+    public Product updateProducts(Product product) {
+        for (Product p : productList) {
+
+            p.setId(product.getId());
+            p.setName(product.getName());
+            p.setPrice(product.getPrice());
+            return p;
+
         }
+
         return null;
     }
 
-   //deleting a product by id
 
-   public void deleteProducts(Long id)
-   {
-      for (Product prod : productList)
-      {
-
-      }
-   }
-
-
-
-
-
-
-
+    public void deleteProducts(Long id) {
+        productList.removeIf(p -> p.getId() == id);
+    }
 }
+
+
+
+
+
+
+
