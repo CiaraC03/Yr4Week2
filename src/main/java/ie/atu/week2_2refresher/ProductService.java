@@ -26,7 +26,6 @@ public class ProductService {
         return product;
     }
 
-    //updating a product by id name
     public Product updateProducts(Product product) {
         for (Product p : productList) {
 
@@ -41,8 +40,8 @@ public class ProductService {
     }
 
 
-    public void deleteProducts(Long id) {
-        productList.removeIf(p -> p.getId() == id);
+    public void deleteProducts(Product product) {
+        productList.removeIf(p -> p.getId() == product.getId());
     }
 }
 
