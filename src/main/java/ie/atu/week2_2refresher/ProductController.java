@@ -33,9 +33,9 @@ public class ProductController {
         return productService.updateProducts(product);
     }
     @DeleteMapping("/deleteProducts")
-    public void deleteProducts (Long id)
+    public void deleteProducts (Product product)
     {
-        productService.deleteProducts(id);
+        productService.deleteProducts(product);
     }
 
 
